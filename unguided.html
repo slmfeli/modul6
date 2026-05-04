@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramadan Kareem</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #0f3d2e;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 215, 0, 0.12);
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .circle.one {
+      width: 220px;
+      height: 220px;
+      top: 8%;
+      left: 8%;
+    }
+
+    .circle.two {
+      width: 150px;
+      height: 150px;
+      bottom: 12%;
+      right: 10%;
+      animation-delay: 1s;
+    }
+
+    .circle.three {
+      width: 90px;
+      height: 90px;
+      top: 20%;
+      right: 22%;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-25px);
+      }
+    }
+
+    .card {
+      width: 100%;
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 30px;
+      padding: 55px 35px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .moon {
+      font-size: 80px;
+      margin-bottom: 15px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #f7d774;
+      }
+      to {
+        text-shadow: 0 0 35px #f7d774;
+      }
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #f9d976;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 19px;
+      color: #f3f3f3;
+      max-width: 650px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+    }
+
+    .info-box {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
+    }
+
+    .info {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 18px 25px;
+      min-width: 160px;
+      transition: 0.3s;
+    }
+
+    .info:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .info h3 {
+      color: #f9d976;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .info p {
+      font-size: 14px;
+      color: #eeeeee;
+    }
+
+    .thr-button {
+      background: #f9d976;
+      color: #0f3d2e;
+      border: none;
+      padding: 17px 35px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(249, 217, 118, 0.4);
+      transition: 0.3s;
+    }
+
+    .thr-button:hover {
+      transform: scale(1.08);
+      background: #ffe599;
+      box-shadow: 0 15px 35px rgba(249, 217, 118, 0.6);
+    }
+
+    .thr-button:active {
+      transform: scale(0.95);
+    }
+
+    .footer-text {
+      margin-top: 30px;
+      color: #d9d9d9;
+      font-size: 14px;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 99;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      color: #0f3d2e;
+      max-width: 450px;
+      width: 100%;
+      border-radius: 25px;
+      text-align: center;
+      padding: 35px 28px;
+      position: relative;
+      animation: popUp 0.45s ease;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes popUp {
+      from {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .gift {
+      font-size: 75px;
+      animation: shake 1s infinite;
+    }
+
+    @keyframes shake {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(8deg);
+      }
+      75% {
+        transform: rotate(-8deg);
+      }
+    }
+
+    .modal-content h2 {
+      margin-top: 15px;
+      font-size: 29px;
+      color: #0f3d2e;
+    }
+
+    .modal-content p {
+      margin: 15px 0 25px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .money {
+      background: #0f3d2e;
+      color: #f9d976;
+      padding: 13px 22px;
+      border-radius: 14px;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      display: inline-block;
+    }
+
+    .close-btn {
+      background: #0f3d2e;
+      color: white;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close-btn:hover {
+      background: #145a42;
+      transform: scale(1.05);
+    }
+
+    .x-btn {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      background: transparent;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #0f3d2e;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      z-index: 100;
+      animation: fall 3s linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 34px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .moon {
+        font-size: 60px;
+      }
+
+      .card {
+        padding: 40px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+    <div class="circle three"></div>
+
+    <div class="card">
+      <div class="moon">🌙</div>
+      <h1>Ramadan Kareem</h1>
+
+      <p class="subtitle">
+        Selamat menjalankan ibadah puasa. Semoga Ramadan tahun ini membawa keberkahan,
+        kedamaian, dan kebahagiaan untuk kita semua.
+      </p>
+
+      <div class="info-box">
+        <div class="info">
+          <h3>Puasa</h3>
+          <p>Menahan diri dan melatih kesabaran</p>
+        </div>
+
+        <div class="info">
+          <h3>Doa</h3>
+          <p>Memperbanyak ibadah dan kebaikan</p>
+        </div>
+
+        <div class="info">
+          <h3>Berbagi</h3>
+          <p>Membantu sesama dengan tulus</p>
+        </div>
+      </div>
+
+      <button class="thr-button" onclick="openModal()">
+        🎁 Klik untuk Ambil THR
+      </button>
+
+      <p class="footer-text">
+        Jangan lupa senyum, karena THR bisa datang kapan saja.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal" id="thrModal">
+    <div class="modal-content">
+      <button class="x-btn" onclick="closeModal()">×</button>
+      <div class="gift">🎁</div>
+
+      <h2>Selamat!</h2>
+
+      <p>
+        Anda mendapatkan THR spesial Ramadan.
+        Gunakan dengan bijak dan jangan lupa berbagi.
+      </p>
+
+      <div class="money">Rp 1.000.000</div>
+
+      <br />
+
+      <button class="close-btn" onclick="closeModal()">
+        Terima THR
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("thrModal");
+
+    function openModal() {
+      modal.classList.add("active");
+      createConfetti();
+    }
+
+    function closeModal() {
+      modal.classList.remove("active");
+    }
+
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+
+    function createConfetti() {
+      const colors = ["#f9d976", "#ffffff", "#2ecc71", "#ff7675", "#74b9ff"];
+
+      for (let i = 0; i < 80; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor =
+          colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
+        confetti.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 4000);
+      }
+    }
+  </script>
+</body>
+</html>
